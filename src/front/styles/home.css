@@ -1,7 +1,16 @@
-/*
-    home.css: This website contains selectors only used in home.css
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-    All pages share the styles on index.css but you should create 
-    one more css for each page that will contain the selected used 
-    on that page only (the ones not reused in other pages).
-*/
+* {
+  font-family: 'Nunito', sans-serif;
+}
+
+.container {
+  max-width: 1200px;
+  position: relative;
+}
