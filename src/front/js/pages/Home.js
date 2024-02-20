@@ -1,6 +1,14 @@
 import React, { useContext } from 'react';
 import { Context } from '../store/appContext';
 import { Link, useNavigate } from 'react-router-dom';
+import heroImgUrl from '../../img/portada-facebook.png';
+import cap1ImgUrl from '../../img/capacitaciones/cap1.jpeg';
+import cap2ImgUrl from '../../img/capacitaciones/cap2.jpeg';
+import buen1ImgUrl from '../../img/buen-dia/buen1.jpg';
+import buen2ImgUrl from '../../img/buen-dia/buen2.jpg';
+import cob1ImgUrl from '../../img/trabajos/cob1.jpeg';
+import rub1ImgUrl from '../../img/trabajos/rub1.jpg';
+import camb1ImgUrl from '../../img/trabajos/camb1.jpg';
 import '../../styles/home.css';
 
 export const Home = () => {
@@ -17,29 +25,26 @@ export const Home = () => {
             <div className="row align-items-center">
               <div className="col-lg-6 p-5">
                 <h1 className="hero-title">
-                  <span className="header-pet-text">Aníbal Studio</span>...
-                  <br /> tu mejor aliado en el cuidado de tu cabello
+                  <span className="header-text">Aníbal Studio</span>...
+                  <br /> ¡Todo lo que tu cabello necesita, ahora a tan solo un
+                  click!
                 </h1>
                 <p className="lead text-muted">
-                  Registra, controla, y disfruta de la salud de tus mascotas con
-                  Pet+. Mantén al día sus vacunas, peso, citas y más. Todo en un
-                  solo lugar, su bienestar merece la mejor atención.
+                  Mantén al día tus citas, tratamientos, productos favoritos y
+                  más. Todo en un solo lugar, porque tu belleza merece la mejor
+                  atención.
                 </p>
 
                 <div className="btn-group gap-3">
-                  <button
-                    className="button btn text-white rounded-3"
-                    type="button"
-                    onClick={'handelInvitado'}
-                  >
-                    Explorar como invitado
+                  <button className="btn btn-primary rounded-3" type="button">
+                    Ver Productos
                   </button>
                   <Link
                     to="/login"
-                    className="btn btn-light text-black rounded-3"
+                    className="btn btn-light rounded-3"
                     type="button"
                   >
-                    Iniciar sesión
+                    Ver Servicios
                   </Link>
                 </div>
               </div>
@@ -47,8 +52,8 @@ export const Home = () => {
                 <div className="hero-image">
                   <img
                     className="img-fluid hero-image"
-                    src={'rigoImageUrl'}
-                    alt="Picture of pets"
+                    src={heroImgUrl}
+                    alt="Foto de portada"
                   />
                 </div>
               </div>
@@ -59,39 +64,45 @@ export const Home = () => {
 
       <div className="divider-section">
         <div>
-          <i className="fas fa-dog"></i>
-          <p>Perros</p>
+          <i className="fas fa-cut"></i>
+          <p>Cortes</p>
         </div>
         <div>
-          <i className="fas fa-cat"></i>
-          <p>Gatos</p>
+          <i className="fas fa-soap"></i>
+          <p>Shampoos</p>
         </div>
         <div>
-          <i className="fas fa-dove"></i>
-          <p>Aves</p>
+          <i className="fas fa-oil-can"></i>
+          <p>Keratinas</p>
         </div>
         <div>
-          <i className="fas fa-paw"></i>
-          <p>Otras mascotas</p>
+          <i className="fas fa-spa"></i>
+          <p>Tratamientos</p>
+        </div>
+        <div>
+          <div>
+            <i className="fas fa-ellipsis-h"></i>
+            <p>Y mucho más...</p>
+          </div>
         </div>
       </div>
 
       <div className="container my-4">
         <div className="row align-items-center">
           <div className="col-lg-12 text-center">
-            <h2 className="mb-3">¿Eres dueño de una o varias mascotas?</h2>
+            <h2 className="mb-3">¡Nuestra Trayectoria!</h2>
           </div>
         </div>
         <div className="row align-items-center">
           <div className="col-lg-12 text-center mb-2 ">
-            <p>Inicia sesión y podrás...</p>
+            <p>¡Buen Día! 🎥</p>
           </div>
         </div>
         <div className="row row-cols-1 row-cols-md-2 g-4">
           <div className="col">
             <div className="card">
               <img
-                src={'exampleOneImgUrl'}
+                src={buen1ImgUrl}
                 className="card-img-top img-example"
                 alt="Imagen 1"
               />
@@ -105,7 +116,43 @@ export const Home = () => {
           <div className="col">
             <div className="card">
               <img
-                src={'exampleTwoImgUrl'}
+                src={buen2ImgUrl}
+                className="card-img-top img-example"
+                alt="Imagen 2"
+              />
+              <div className="card-body">
+                <p className="card-text">
+                  📓 Llevar un control separado de cada una de ellas.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="row align-items-center">
+          <div className="col-lg-12 text-center mb-2 ">
+            <p>¡Algunas Capacitaciones! 📚 💇🏼‍♀️</p>
+          </div>
+        </div>
+        <div className="row row-cols-1 row-cols-md-2 g-4">
+          <div className="col">
+            <div className="card">
+              <img
+                src={cap1ImgUrl}
+                className="card-img-top img-example"
+                alt="Imagen 1"
+              />
+              <div className="card-body">
+                <p className="card-text">
+                  🐾 Ingresar tantas mascotas como gustes.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div className="col">
+            <div className="card">
+              <img
+                src={cap2ImgUrl}
                 className="card-img-top img-example"
                 alt="Imagen 2"
               />
@@ -194,7 +241,7 @@ export const Home = () => {
       <div className="container my-5">
         <div className="row align-items-center">
           <div className="col-lg-12 text-center">
-            <h2 className="mb-3">¿Eres veterinario?</h2>
+            <h2 className="mb-3">¡Nuestros Trabajos!</h2>
           </div>
         </div>
         <div className="row align-items-center">
@@ -205,7 +252,7 @@ export const Home = () => {
         <div className="row row-cols-1 row-cols-md-3 g-4">
           <div className="col">
             <div className="card">
-              <img src={'docImgUrl'} className="card-img-top" alt="Imagen 1" />
+              <img src={cob1ImgUrl} className="card-img-top" alt="Imagen 1" />
               <div className="card-body">
                 <p className="card-text">
                   <i className="fas fa-book-medical"></i> Registrar a tus
@@ -216,7 +263,7 @@ export const Home = () => {
           </div>
           <div className="col">
             <div className="card">
-              <img src={'docsImgUrl'} className="card-img-top" alt="Imagen 2" />
+              <img src={rub1ImgUrl} className="card-img-top" alt="Imagen 2" />
               <div className="card-body">
                 <p className="card-text">
                   <i className="far fa-calendar-alt icon-docs"></i> Programar
@@ -227,11 +274,7 @@ export const Home = () => {
           </div>
           <div className="col">
             <div className="card">
-              <img
-                src={'docCatImgUrl'}
-                className="card-img-top"
-                alt="Imagen 3"
-              />
+              <img src={camb1ImgUrl} className="card-img-top" alt="Imagen 3" />
               <div className="card-body">
                 <p className="card-text">★ Y mucho más...</p>
               </div>

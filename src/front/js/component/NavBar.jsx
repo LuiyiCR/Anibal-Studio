@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import logoImgUrl from '../../img/logosinfondoletrasnegras.png';
+import logoImgUrl from '../../img/logo/logo-sin-fondo-letras-negras.png';
 import '../../styles/navbar.css';
 
 export const NavBar = () => {
