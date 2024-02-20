@@ -1,7 +1,6 @@
 import React, { useContext } from 'react';
 import { Context } from '../store/appContext';
 import { Link, useNavigate } from 'react-router-dom';
-import rigoImageUrl from '../../img/rigo-baby.jpg';
 import '../../styles/home.css';
 
 export const Home = () => {
@@ -14,13 +13,12 @@ export const Home = () => {
         style={{ maxWidth: '1200px', position: 'relative' }}
       >
         <div className="hero text-center">
-          <div className="container mt-5 mb-5">
+          <div className="container mt-3 mb-3">
             <div className="row align-items-center">
               <div className="col-lg-6 p-5">
                 <h1 className="hero-title">
-                  <span className="header-pet-text">PET+</span>, el mejor aliado{' '}
-                  <br /> en el cuidado de <br />
-                  tus mascotas
+                  <span className="header-pet-text">Aníbal Studio</span>...
+                  <br /> tu mejor aliado en el cuidado de tu cabello
                 </h1>
                 <p className="lead text-muted">
                   Registra, controla, y disfruta de la salud de tus mascotas con
@@ -49,7 +47,7 @@ export const Home = () => {
                 <div className="hero-image">
                   <img
                     className="img-fluid hero-image"
-                    src={'heroImgUrl'}
+                    src={'rigoImageUrl'}
                     alt="Picture of pets"
                   />
                 </div>
