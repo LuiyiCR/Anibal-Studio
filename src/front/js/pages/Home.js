@@ -1,6 +1,7 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Context } from '../store/appContext';
 import { Link, useNavigate } from 'react-router-dom';
+import { Modal, Button } from 'react-bootstrap';
 import heroImgUrl from '../../img/portada-facebook.png';
 import cap1ImgUrl from '../../img/capacitaciones/cap1.jpeg';
 import cap2ImgUrl from '../../img/capacitaciones/cap2.jpeg';
@@ -13,6 +14,19 @@ import '../../styles/home.css';
 
 export const Home = () => {
   const { store, actions } = useContext(Context);
+  const [showModal, setShowModal] = useState(false);
+
+  const handleOpenWhatsApp = () => {
+    setShowModal(true);
+  };
+
+  const handleCloseWhatsApp = () => {
+    setShowModal(false);
+  };
+
+  const handleConfirmWhatsApp = () => {
+    window.location.href = 'https://wa.me/50672362847';
+  };
 
   const testimonios = [
     {
@@ -403,9 +417,30 @@ export const Home = () => {
           <span className="visually-hidden">Siguiente</span>
         </button>
       </div>
-      <a href="https://wa.me/50672362847" className="whatsapp-button">
+
+      <button className="whatsapp-button" onClick={handleOpenWhatsApp}>
         <i className="fab fa-whatsapp"></i>
-      </a>
+      </button>
+
+      <Modal show={showModal} onHide={handleCloseWhatsApp}>
+        <Modal.Header closeButton>
+          <Modal.Title>¡Confirmación! 💬</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <p>
+            ¿Deseas dejar esta página para ponerte en contacto con nosotros vía
+            WhatsApp? 📲
+          </p>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleCloseWhatsApp}>
+            ¡No!
+          </Button>
+          <Button variant="primary" onClick={handleConfirmWhatsApp}>
+            ¡Sí!
+          </Button>
+        </Modal.Footer>
+      </Modal>
     </div>
   );
 };
