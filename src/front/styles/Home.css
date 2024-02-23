@@ -1,3 +1,10 @@
+/* Main Color: #222222 */
+/* Secondary Color: #8FFFF7
+#9ffff8 
+#affff9
+#c6fffb
+*/
+
 *,
 *::before,
 *::after {
@@ -12,6 +19,8 @@
 
 body {
   overflow-x: hidden;
+  color: white;
+  background-color: #222222;
 }
 
 .container {
@@ -19,42 +28,16 @@ body {
   position: relative;
 }
 
-.carousel .card {
-  height: 475px;
-  display: flex;
-  flex-direction: column;
-}
-
-.carousel .card-img-top {
-  height: 400px;
-  object-fit: cover;
-}
-
-.whatsapp-button {
-  position: fixed;
-  right: 20px;
-  bottom: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  border: none;
-  background-color: #25d366;
-  color: white;
-  text-decoration: none;
-  padding: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
-  transition: background-color 0.3s;
-  z-index: 1000;
-}
-
-.whatsapp-button:hover {
-  background-color: #1ebea5;
-  transform: scale(1.05);
-}
-
-.whatsapp-button i {
-  font-size: 2rem;
+.container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 35%;
+  height: 25%;
+  border-radius: 1.25rem;
+  opacity: 0.5;
+  background: linear-gradient(90deg, #9ffff8, #c6fffb);
+  filter: blur(125px);
+  z-index: -1;
 }

@@ -1,4 +1,5 @@
 import React from 'react';
+import '../../styles/NuestrosTrabajosSection.css';
 
 export const NuestrosTrabajosSection = ({
   rub1ImgUrl,
@@ -6,7 +7,7 @@ export const NuestrosTrabajosSection = ({
   camb1ImgUrl,
 }) => {
   return (
-    <div className="container my-4">
+    <div className="container-cards mb-5 pt-4">
       <div className="row align-items-center">
         <div className="col-lg-12 text-center">
           <h2 className="mb-3">¡Nuestros Trabajos!</h2>

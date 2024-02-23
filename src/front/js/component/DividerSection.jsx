@@ -3,7 +3,7 @@ import '../../styles/DividerSection.css';
 
 export const DividerSection = () => {
   return (
-    <div className="divider-section">
+    <div className="divider-section my-5">
       <div>
         <i className="fas fa-cut"></i>
         <p>Cortes</p>

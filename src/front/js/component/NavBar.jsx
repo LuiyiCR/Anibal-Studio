@@ -39,7 +39,9 @@ export const NavBar = () => {
               Acerca De Nosotros
             </Link>
             <Link to="/iniciar-sesion" className="nav-item nav-link">
-              <button className="btn btn-primary">Iniciar Sesión</button>
+              <button className="btn button-primary rounded-1">
+                Iniciar Sesión
+              </button>
             </Link>
           </div>
         </div>

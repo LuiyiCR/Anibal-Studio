@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import '../../styles/HeroSection.css';
 
 export const HeroSection = ({ heroImgUrl }) => {
   return (
@@ -8,19 +9,19 @@ export const HeroSection = ({ heroImgUrl }) => {
         <div className="row align-items-center">
           <div className="col-lg-6 p-5">
             <h1 className="hero-title">
-              <span className="header-text">Aníbal Studio</span>...
+              <span className="header-anibalstudio-text">Aníbal Studio,</span>
               <br /> ¡Todo lo que tu cabello necesita, ahora a tan solo un
               click!
             </h1>
-            <p className="lead text-muted">
+            <p className="lead text-muted mb-5">
               Mantén al día tus citas, tratamientos, productos favoritos y más.
               Todo en un solo lugar, porque tu belleza merece la mejor atención.
             </p>
 
-            <div className="btn-group gap-3">
+            <div className="btn-group gap-3 mb-4 w-100">
               <Link
                 to="/productos"
-                className="btn btn-primary rounded-3"
+                className="btn button-primary rounded-1"
                 type="button"
               >
                 Ver Productos
