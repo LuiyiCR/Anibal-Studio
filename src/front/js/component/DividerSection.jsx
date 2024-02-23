@@ -1,4 +1,5 @@
 import React from 'react';
+import '../../styles/DividerSection.css';
 
 export const DividerSection = () => {
   return (

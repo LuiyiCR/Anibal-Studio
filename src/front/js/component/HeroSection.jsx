@@ -18,15 +18,12 @@ export const HeroSection = ({ heroImgUrl }) => {
             </p>
 
             <div className="btn-group gap-3">
-              <button className="btn btn-primary rounded-3" type="button">
-                Ver Productos
-              </button>
               <Link
-                to="/login"
-                className="btn btn-light rounded-3"
+                to="/productos"
+                className="btn btn-primary rounded-3"
                 type="button"
               >
-                Ver Servicios
+                Ver Productos
               </Link>
             </div>
           </div>

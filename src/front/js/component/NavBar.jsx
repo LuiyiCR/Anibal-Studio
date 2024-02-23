@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import logoImgUrl from '../../img/logo/logo-sin-fondo-letras-negras.png';
-import '../../styles/navbar.css';
+import '../../styles/NavBar.css';
 
 export const NavBar = () => {
   return (

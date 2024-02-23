@@ -16,7 +16,7 @@ import buen2ImgUrl from '../../img/buen-dia/buen2.jpg';
 import cob1ImgUrl from '../../img/trabajos/cob1.jpeg';
 import rub1ImgUrl from '../../img/trabajos/rub1.jpg';
 import camb1ImgUrl from '../../img/trabajos/camb1.jpg';
-import '../../styles/home.css';
+import '../../styles/Home.css';
 
 export const Home = () => {
   const { store, actions } = useContext(Context);
