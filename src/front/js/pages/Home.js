@@ -403,6 +403,9 @@ export const Home = () => {
           <span className="visually-hidden">Siguiente</span>
         </button>
       </div>
+      <a href="https://wa.me/50672362847" className="whatsapp-button">
+        <i className="fab fa-whatsapp"></i>
+      </a>
     </div>
   );
 };
