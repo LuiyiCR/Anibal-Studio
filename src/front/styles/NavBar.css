@@ -5,3 +5,77 @@
   object-fit: cover;
   background-color: rgb(254, 254, 254);
 }
+
+/* Theme Switch */
+.theme-switch {
+  width: 500px;
+  height: 250px;
+  position: relative;
+  display: block;
+  background-color: #c6fffb;
+  border-radius: 200px;
+  box-shadow: inset 0px 5px 15px rgba(0, 0, 0, 0.4),
+    inset 0px -5px 15px rgba(0, 0, 0, 0.4);
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.theme-switch::after {
+  content: '';
+  width: 180px;
+  height: 180px;
+  position: absolute;
+  top: 25px;
+  left: 10px;
+  background: linear-gradient(180deg, #ffcc89, #d8860b);
+  border-radius: 180px;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 2);
+  transition: 0.3s;
+}
+
+.theme-switch__input {
+  width: 0;
+  visibility: hidden;
+}
+
+.theme-switch__input:checked + .theme-switch {
+  background-color: #242424;
+}
+
+.theme-switch__input:checked + .theme-switch::after {
+  left: 310px;
+  transform: translateX(-100%);
+  background: linear-gradient(180deg, #e7e7e7, #222);
+}
+
+.theme-switch:active::after {
+  width: 260px;
+}
+
+.fas.fa-moon,
+.fas.fa-sun {
+  position: absolute;
+  font-size: 120px;
+  top: 65px;
+  z-index: 5;
+}
+
+.fas.fa-sun {
+  left: 50px;
+  transition: 0.3s;
+  color: #fff;
+}
+
+.fas.fa-moon {
+  left: 250px;
+  color: #222;
+  transition: 0.3s;
+}
+
+.theme-switch__input:checked ~ .theme-switch .fas.fa-sun {
+  color: #e7e7e7;
+}
+
+.theme-switch__input:checked ~ .theme-switch .fas.fa-moon {
+  color: #fff;
+}

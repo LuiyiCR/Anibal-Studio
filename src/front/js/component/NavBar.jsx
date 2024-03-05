@@ -53,13 +53,16 @@ export const NavBar = () => {
           </div>
         </div>
       </div>
-      <label>
-        Modo Oscuro
-        <input
-          type="checkbox"
-          checked={store.theme === 'dark-theme'}
-          onChange={handleThemeChange}
-        />
+      <input
+        className="theme-switch__input"
+        type="checkbox"
+        id="theme-switch"
+        checked={store.theme === 'dark-theme'}
+        onChange={handleThemeChange}
+      />
+      <label for="theme-switch" className="theme-switch">
+        <i className="fas fa-moon"></i>
+        <i className="fas fa-sun"></i>
       </label>
     </nav>
   );

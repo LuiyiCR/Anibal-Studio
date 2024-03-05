@@ -1,7 +1,7 @@
 const getState = ({ getStore, getActions, setStore }) => {
   return {
     store: {
-      theme: localStorage.getItem('theme') || 'light-theme',
+      theme: localStorage.getItem('theme') || 'dark-theme',
     },
     actions: {
       toggleTheme: () => {
