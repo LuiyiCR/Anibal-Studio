@@ -25,7 +25,7 @@ body.light-theme {
 }
 
 /* Default Dark Theme */
-body.light-theme {
+body.dark-theme {
   overflow-x: hidden;
   color: white;
   background-color: #222;
@@ -36,7 +36,7 @@ body.light-theme {
   position: relative;
 }
 
-.container::before {
+.dark-theme .container::before {
   content: '';
   position: absolute;
   top: 0;

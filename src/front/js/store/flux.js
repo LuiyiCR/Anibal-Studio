@@ -7,7 +7,7 @@ const getState = ({ getStore, getActions, setStore }) => {
       toggleTheme: () => {
         const currentTheme = getStore().theme;
         const newTheme =
-          currentTheme === 'light-theme' ? 'dark-theme' : 'light-theme';
+          currentTheme === 'dark-theme' ? 'light-theme' : 'dark-theme';
         localStorage.setItem('theme', newTheme);
         setStore({ theme: newTheme });
       },

@@ -1,9 +1,16 @@
 .hero-title {
   font-size: 1.5rem;
-  color: white;
   line-height: 120%;
   letter-spacing: 0.1rem;
   margin-bottom: 2rem;
+}
+
+.dark-theme .hero-title {
+  color: #fff;
+}
+
+.light-theme .hero-title {
+  color: black;
 }
 
 .header-anibalstudio-text {
