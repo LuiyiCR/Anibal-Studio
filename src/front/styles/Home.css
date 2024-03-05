@@ -17,10 +17,18 @@
   font-family: 'Nunito', sans-serif;
 }
 
-body {
+/* Default Light Theme */
+body.light-theme {
+  overflow-x: hidden;
+  color: black;
+  background-color: #fff;
+}
+
+/* Default Dark Theme */
+body.light-theme {
   overflow-x: hidden;
   color: white;
-  background-color: #222222;
+  background-color: #222;
 }
 
 .container {

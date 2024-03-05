@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import { Context } from '../store/appContext';
 import { Link, useNavigate } from 'react-router-dom';
 import { HeroSection } from '../component/HeroSection.jsx';
@@ -21,6 +21,10 @@ import '../../styles/Home.css';
 export const Home = () => {
   const { store, actions } = useContext(Context);
   const [showModal, setShowModal] = useState(false);
+
+  useEffect(() => {
+    document.body.className = store.theme;
+  }, [store.theme]);
 
   const handleOpenWhatsApp = () => {
     setShowModal(true);

@@ -1,8 +1,16 @@
 const getState = ({ getStore, getActions, setStore }) => {
   return {
-    store: {},
+    store: {
+      theme: localStorage.getItem('theme') || 'light-theme',
+    },
     actions: {
-      // Use getActions to call a function within a fuction
+      toggleTheme: () => {
+        const currentTheme = getStore().theme;
+        const newTheme =
+          currentTheme === 'light-theme' ? 'dark-theme' : 'light-theme';
+        localStorage.setItem('theme', newTheme);
+        setStore({ theme: newTheme });
+      },
     },
   };
 };

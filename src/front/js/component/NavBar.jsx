@@ -1,9 +1,16 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { Context } from '../store/appContext';
 import { Link } from 'react-router-dom';
 import logoImgUrl from '../../img/logo/logo-sin-fondo-letras-negras.png';
 import '../../styles/NavBar.css';
 
 export const NavBar = () => {
+  const { store, actions } = useContext(Context);
+
+  const handleThemeChange = (e) => {
+    actions.toggleTheme();
+  };
+
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <div className="container">
@@ -46,6 +53,14 @@ export const NavBar = () => {
           </div>
         </div>
       </div>
+      <label>
+        Modo Oscuro
+        <input
+          type="checkbox"
+          checked={store.theme === 'dark-theme'}
+          onChange={handleThemeChange}
+        />
+      </label>
     </nav>
   );
 };
