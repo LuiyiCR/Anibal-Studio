@@ -60,7 +60,7 @@ export const NavBar = () => {
             checked={store.theme === 'dark-theme'}
             onChange={handleThemeChange}
           />
-          <label for="theme-switch" className="theme-switch">
+          <label htmlFor="theme-switch" className="theme-switch">
             <i className="fas fa-moon"></i>
             <i className="fas fa-sun"></i>
           </label>

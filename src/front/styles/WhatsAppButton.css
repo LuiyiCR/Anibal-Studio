@@ -26,3 +26,18 @@
 .whatsapp-button i {
   font-size: 2rem;
 }
+
+.dark-theme .modal-content {
+  background-color: #444;
+  color: white;
+}
+
+.dark-theme .btn-close {
+  filter: invert(1);
+}
+
+.yes-btn {
+  background-color: #9ffff8;
+  color: black;
+  border: none;
+}

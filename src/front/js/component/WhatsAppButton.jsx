@@ -19,7 +19,7 @@ export const WhatsAppButton = ({
           <Modal.Title>¡Confirmación! 💬</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <p>
+          <p className="whatsapp-text">
             ¿Deseas dejar esta página para ponerte en contacto con nosotros vía
             WhatsApp? 📲
           </p>
@@ -28,7 +28,11 @@ export const WhatsAppButton = ({
           <Button variant="secondary" onClick={handleCloseWhatsApp}>
             ¡No!
           </Button>
-          <Button variant="primary" onClick={handleConfirmWhatsApp}>
+          <Button
+            className="yes-btn"
+            variant="primary"
+            onClick={handleConfirmWhatsApp}
+          >
             ¡Sí!
           </Button>
         </Modal.Footer>

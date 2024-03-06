@@ -14,7 +14,7 @@ export const NuestrosTrabajosSection = ({
         </div>
       </div>
       <div className="row align-items-center">
-        <div className="col-lg-12 text-center mb-2 ">
+        <div className="col-lg-12 text-center mb-2">
           <p>¡Algunas de nuestras creaciones...! ♥️</p>
         </div>
       </div>
