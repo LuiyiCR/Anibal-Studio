@@ -17,53 +17,55 @@ export const NavBar = () => {
         <Link to="/" className="navbar-brand mb-0 h1">
           <img src={logoImgUrl} alt="Your Logo" className="logo" />
         </Link>
-        <button
-          className="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarNav"
-          aria-controls="navbarNav"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span className="navbar-toggler-icon"></span>
-        </button>
-        <div
-          className="collapse navbar-collapse justify-content-center"
-          id="navbarNav"
-        >
-          <div className="navbar-nav">
-            <Link to="/nuestros-centros" className="nav-item nav-link">
-              Nuestros Centros
-            </Link>
-            <Link to="/servicios" className="nav-item nav-link">
-              Servicios
-            </Link>
-            <Link to="/productos" className="nav-item nav-link">
-              Productos
-            </Link>
-            <Link to="/acerca-de-nosotros" className="nav-item nav-link">
-              Acerca De Nosotros
-            </Link>
-            <Link to="/iniciar-sesion" className="nav-item nav-link">
-              <button className="btn button-primary rounded-1">
-                Iniciar Sesión
-              </button>
-            </Link>
+        <div className="menu-switcher">
+          <button
+            className="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span className="navbar-toggler-icon"></span>
+          </button>
+          <div
+            className="collapse navbar-collapse justify-content-center"
+            id="navbarNav"
+          >
+            <div className="navbar-nav">
+              <Link to="/nuestros-centros" className="nav-item nav-link">
+                Nuestros Centros
+              </Link>
+              <Link to="/servicios" className="nav-item nav-link">
+                Servicios
+              </Link>
+              <Link to="/productos" className="nav-item nav-link">
+                Productos
+              </Link>
+              <Link to="/acerca-de-nosotros" className="nav-item nav-link">
+                Acerca De Nosotros
+              </Link>
+              <Link to="/iniciar-sesion" className="nav-item nav-link">
+                <button className="btn button-primary rounded-1">
+                  Iniciar Sesión
+                </button>
+              </Link>
+            </div>
           </div>
+          <input
+            className="theme-switch__input"
+            type="checkbox"
+            id="theme-switch"
+            checked={store.theme === 'dark-theme'}
+            onChange={handleThemeChange}
+          />
+          <label for="theme-switch" className="theme-switch">
+            <i className="fas fa-moon"></i>
+            <i className="fas fa-sun"></i>
+          </label>
         </div>
       </div>
-      <input
-        className="theme-switch__input"
-        type="checkbox"
-        id="theme-switch"
-        checked={store.theme === 'dark-theme'}
-        onChange={handleThemeChange}
-      />
-      <label for="theme-switch" className="theme-switch">
-        <i className="fas fa-moon"></i>
-        <i className="fas fa-sun"></i>
-      </label>
     </nav>
   );
 };
