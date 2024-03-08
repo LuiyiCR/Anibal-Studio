@@ -1,5 +1,3 @@
-/* DividerSection.css */
-
 .divider-section {
   display: flex;
   justify-content: space-evenly;
@@ -13,10 +11,14 @@
 
 .divider-section i {
   font-size: 1.3rem;
-  color: #8ffff7; /* or any color that fits your design */
+  color: #8ffff7;
 }
 
 .divider-section p {
   margin-top: 0.5rem;
   color: white;
+}
+
+.light-theme .divider-section p {
+  color: black;
 }

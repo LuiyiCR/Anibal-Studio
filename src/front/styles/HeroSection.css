@@ -21,6 +21,10 @@
   color: #bbbbbb !important;
 }
 
+.light-theme .text-muted {
+  color: #6c757d !important;
+}
+
 .button-primary {
   background-color: #8ffff7;
   color: black;
@@ -40,5 +44,12 @@
   height: 100%;
   object-fit: cover;
   border-radius: 0.25rem;
+}
+
+.dark-theme .hero-image {
   box-shadow: 0 0 10px 10px rgba(255, 255, 255, 0.03);
+}
+
+.light-theme .hero-image {
+  box-shadow: 0 0 10px 10px rgba(0, 0, 0, 0.1);
 }

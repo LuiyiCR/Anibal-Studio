@@ -46,6 +46,6 @@ body.dark-theme {
   border-radius: 1.25rem;
   opacity: 0.5;
   background: linear-gradient(90deg, #9ffff8, #c6fffb);
-  filter: blur(125px);
+  filter: blur(7.8125rem);
   z-index: -1;
 }

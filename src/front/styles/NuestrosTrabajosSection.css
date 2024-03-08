@@ -2,18 +2,24 @@
   background-color: #444;
   color: white;
   border-radius: 0.25rem;
-  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+  box-shadow: 0.125rem 0.125rem 0.3125rem rgba(0, 0, 0, 0.5);
+}
+
+.light-theme .container-cards {
+  background-color: #f8f9fa;
+  border-radius: 0.25rem;
+  box-shadow: 0.125rem 0.125rem 0.3125rem rgba(0, 0, 0, 0.1);
 }
 
 .carousel .card {
-  height: 475px;
+  height: 29.6875rem;
   display: flex;
   flex-direction: column;
   border: none;
 }
 
 .carousel .card-img-top {
-  height: 400px;
+  height: 25rem;
   object-fit: cover;
 }
 
