@@ -12,7 +12,7 @@ export const NavBar = () => {
   };
 
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light">
+    <nav className="navbar navbar-expand-lg navbar-light">
       <div className="container">
         <Link to="/" className="navbar-brand mb-0 h1">
           <img src={logoImgUrl} alt="Your Logo" className="logo" />
@@ -29,6 +29,7 @@ export const NavBar = () => {
           >
             <span className="navbar-toggler-icon"></span>
           </button>
+
           <div
             className="collapse navbar-collapse justify-content-center"
             id="navbarNav"

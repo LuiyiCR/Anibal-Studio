@@ -4,6 +4,26 @@
   border-radius: 0.625rem;
   object-fit: cover;
   background-color: rgb(254, 254, 254);
+  box-shadow: 3px 3px 0px rgba(0, 0, 0, 0.5);
+}
+
+.dark-theme .navbar-nav .nav-link {
+  color: white;
+}
+
+.dark-theme .navbar-nav .nav-link:hover {
+  color: lightgray;
+}
+
+.dark-theme .navbar-toggler-icon {
+  filter: invert(1);
+  width: 2rem;
+  height: 2rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.dark-theme .navbar {
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
 }
 
 /* Theme Switch */
