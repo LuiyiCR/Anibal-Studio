@@ -1,6 +1,7 @@
 import React, { useContext, useState, useEffect } from 'react';
 import { Context } from '../store/appContext';
 import { Link, useNavigate } from 'react-router-dom';
+import Login from './Login.js';
 import { HeroSection } from '../component/HeroSection.jsx';
 import { DividerSection } from '../component/DividerSection.jsx';
 import { NuestrosTrabajosSection } from '../component/NuestrosTrabajosSection.jsx';
@@ -90,7 +91,7 @@ export const Home = () => {
       <div className="row align-items-center">
         <div className="col-lg-12 text-center mb-5">
           <Link
-            to="/login"
+            to="/iniciar-sesion"
             className="btn btn-light text-black rounded-3"
             type="button"
           >
