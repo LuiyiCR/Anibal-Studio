@@ -49,3 +49,17 @@ body.dark-theme {
   filter: blur(7.8125rem);
   z-index: -1;
 }
+
+.light-theme .container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 35%;
+  height: 25%;
+  border-radius: 1.25rem;
+  opacity: 0.3;
+  background: linear-gradient(90deg, #9ffff8, #c6fffb);
+  filter: blur(7.8125rem);
+  z-index: -1;
+}

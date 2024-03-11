@@ -14,13 +14,41 @@
 .carousel .card {
   height: 29.6875rem;
   display: flex;
-  flex-direction: column;
   border: none;
 }
 
+.dark-theme .carousel .card {
+  background-color: #222;
+}
+
 .carousel .card-img-top {
+  max-width: 37.5rem;
+  width: 100%;
   height: 25rem;
+  align-self: center;
   object-fit: cover;
+}
+
+@media (min-width: 576px) {
+  .carousel .card {
+    height: 35rem;
+  }
+
+  .carousel .card-img-top {
+    height: 28.125rem;
+    object-fit: cover;
+  }
+}
+
+@media (min-width: 768px) {
+  .carousel .card {
+    height: 42rem;
+  }
+
+  .carousel .card-img-top {
+    height: 37.5rem;
+    object-fit: cover;
+  }
 }
 
 .dark-theme .card-body {
