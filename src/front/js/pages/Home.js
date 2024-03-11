@@ -7,6 +7,7 @@ import { NuestrosTrabajosSection } from '../component/NuestrosTrabajosSection.js
 import { NuestraTrayectoriaSection } from '../component/NuestraTrayectoriaSection.jsx';
 import { NuestrasCapacitacionesSection } from '../component/NuestrasCapacitacionesSection.jsx';
 import { TestimoniosSection } from '../component/TestimoniosSection.jsx';
+import BackToTopButton from '../component/BackToTopButton.jsx';
 import { WhatsAppButton } from '../component/WhatsAppButton.jsx';
 import heroImgUrl from '../../img/portada-facebook.png';
 import cap1ImgUrl from '../../img/capacitaciones/cap1.jpeg';
@@ -98,7 +99,7 @@ export const Home = () => {
         </div>
       </div>
       <TestimoniosSection testimonios={testimonios} />
-
+      <BackToTopButton />
       <WhatsAppButton
         handleOpenWhatsApp={handleOpenWhatsApp}
         showModal={showModal}
