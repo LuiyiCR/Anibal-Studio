@@ -24,8 +24,8 @@ export const NuestrosTrabajosSection = ({
         data-bs-ride="carousel"
       >
         <div className="carousel-inner">
-          <div className="carousel-item active d-flex flex-column">
-            <div className="card flex-grow-1">
+          <div className="carousel-item active">
+            <div className="card">
               <img
                 src={rub1ImgUrl}
                 className="card-img-top img-example"
