@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useRef } from 'react';
 import { Context } from '../store/appContext';
 import { Link } from 'react-router-dom';
 import logoImgUrl from '../../img/logo/logo-sin-fondo-letras-negras.png';
@@ -6,9 +6,15 @@ import '../../styles/NavBar.css';
 
 export const NavBar = () => {
   const { store, actions } = useContext(Context);
+  const navBarRef = useRef(null);
 
   const handleThemeChange = (e) => {
     actions.toggleTheme();
+  };
+
+  const closeNavbar = () => {
+    const navBarCollapse = new bootstrap.Collapse(navBarRef.current);
+    navBarCollapse.hide();
   };
 
   return (
@@ -33,21 +39,42 @@ export const NavBar = () => {
           <div
             className="collapse navbar-collapse justify-content-center"
             id="navbarNav"
+            ref={navBarRef}
           >
             <div className="navbar-nav">
-              <Link to="/nuestros-centros" className="nav-item nav-link">
+              <Link
+                to="/nuestros-centros"
+                className="nav-item nav-link"
+                onClick={closeNavbar}
+              >
                 Nuestros Centros
               </Link>
-              <Link to="/servicios" className="nav-item nav-link">
+              <Link
+                to="/servicios"
+                className="nav-item nav-link"
+                onClick={closeNavbar}
+              >
                 Servicios
               </Link>
-              <Link to="/productos" className="nav-item nav-link">
+              <Link
+                to="/productos"
+                className="nav-item nav-link"
+                onClick={closeNavbar}
+              >
                 Productos
               </Link>
-              <Link to="/acerca-de-nosotros" className="nav-item nav-link">
+              <Link
+                to="/acerca-de-nosotros"
+                className="nav-item nav-link"
+                onClick={closeNavbar}
+              >
                 Acerca De Nosotros
               </Link>
-              <Link to="/iniciar-sesion" className="nav-item nav-link">
+              <Link
+                to="/iniciar-sesion"
+                className="nav-item nav-link"
+                onClick={closeNavbar}
+              >
                 <button className="btn button-primary rounded-1">
                   Iniciar Sesión
                 </button>

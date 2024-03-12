@@ -1,8 +1,15 @@
-import React, { useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
+import { Context } from '../store/appContext';
 import { useNaigate, Link } from 'react-router-dom';
 import { WhatsAppButton } from '../component/WhatsAppButton.jsx';
 
 const Login = () => {
+  const { store, actions } = useContext(Context);
+
+  useEffect(() => {
+    document.body.className = store.theme;
+  }, [store.theme]);
+
   return (
     <div className="container-fluid div-signup d-flex align-items-center flex-column background-container-forms h-100">
       {'errorMessage' && (
@@ -66,10 +73,10 @@ const Login = () => {
         </div>
       </div>
       <WhatsAppButton
-        handleOpenWhatsApp={handleOpenWhatsApp}
-        showModal={showModal}
-        handleCloseWhatsApp={handleCloseWhatsApp}
-        handleConfirmWhatsApp={handleConfirmWhatsApp}
+        handleOpenWhatsApp={actions.handleOpenWhatsApp}
+        showModal={store.showModal}
+        handleCloseWhatsApp={actions.handleCloseWhatsApp}
+        handleConfirmWhatsApp={actions.handleConfirmWhatsApp}
       />
     </div>
   );

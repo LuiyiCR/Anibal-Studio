@@ -1,20 +1,18 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { Context } from '../store/appContext';
 import { Modal, Button } from 'react-bootstrap';
 import '../../styles/WhatsAppButton.css';
 
-export const WhatsAppButton = ({
-  handleOpenWhatsApp,
-  showModal,
-  handleCloseWhatsApp,
-  handleConfirmWhatsApp,
-}) => {
+export const WhatsAppButton = () => {
+  const { store, actions } = useContext(Context);
+
   return (
     <React.Fragment>
-      <button className="whatsapp-button" onClick={handleOpenWhatsApp}>
+      <button className="whatsapp-button" onClick={actions.handleOpenWhatsApp}>
         <i className="fab fa-whatsapp"></i>
       </button>
 
-      <Modal show={showModal} onHide={handleCloseWhatsApp}>
+      <Modal show={store.showModal} onHide={actions.handleCloseWhatsApp}>
         <Modal.Header closeButton>
           <Modal.Title>¡Confirmación! 💬</Modal.Title>
         </Modal.Header>
@@ -25,13 +23,13 @@ export const WhatsAppButton = ({
           </p>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={handleCloseWhatsApp}>
+          <Button variant="secondary" onClick={actions.handleCloseWhatsApp}>
             ¡No!
           </Button>
           <Button
             className="yes-btn"
             variant="primary"
-            onClick={handleConfirmWhatsApp}
+            onClick={actions.handleConfirmWhatsApp}
           >
             ¡Sí!
           </Button>

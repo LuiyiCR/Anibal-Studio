@@ -11,6 +11,15 @@ const getState = ({ getStore, getActions, setStore }) => {
         localStorage.setItem('theme', newTheme);
         setStore({ theme: newTheme });
       },
+      handleOpenWhatsApp: () => {
+        setStore({ showModal: true });
+      },
+      handleCloseWhatsApp: () => {
+        setStore({ showModal: false });
+      },
+      handleConfirmWhatsApp: () => {
+        window.location.href = 'https://wa.me/50672362847';
+      },
     },
   };
 };

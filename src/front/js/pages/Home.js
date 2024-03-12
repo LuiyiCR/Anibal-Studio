@@ -28,18 +28,6 @@ export const Home = () => {
     document.body.className = store.theme;
   }, [store.theme]);
 
-  const handleOpenWhatsApp = () => {
-    setShowModal(true);
-  };
-
-  const handleCloseWhatsApp = () => {
-    setShowModal(false);
-  };
-
-  const handleConfirmWhatsApp = () => {
-    window.location.href = 'https://wa.me/50672362847';
-  };
-
   const testimonios = [
     {
       id: 1,
@@ -102,10 +90,10 @@ export const Home = () => {
       <TestimoniosSection testimonios={testimonios} />
       <BackToTopButton />
       <WhatsAppButton
-        handleOpenWhatsApp={handleOpenWhatsApp}
-        showModal={showModal}
-        handleCloseWhatsApp={handleCloseWhatsApp}
-        handleConfirmWhatsApp={handleConfirmWhatsApp}
+        handleOpenWhatsApp={actions.handleOpenWhatsApp}
+        showModal={store.showModal}
+        handleCloseWhatsApp={actions.handleCloseWhatsApp}
+        handleConfirmWhatsApp={actions.handleConfirmWhatsApp}
       />
     </div>
   );
