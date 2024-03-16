@@ -10,8 +10,10 @@ const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
+  const navigate = useNavigate();
+  const [loading, setLoading] = useState(false);
 
-  const submitHandler = (e) => {
+  const submitHandler = async (e) => {
     e.preventDefault();
 
     const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
@@ -22,9 +24,34 @@ const Login = () => {
       setErrorMessage('La contraseña debe tener al menos 6 caracteres');
     } else {
       setErrorMessage('');
-      console.log('Email:', email);
-      console.log('Password:', password);
+      setLoading(true);
+
+      const serverResponse = await mockLoginRequest(email, password);
+
+      setLoading(false);
+
+      if (serverResponse.success) {
+        console.log('Login successful');
+        navigate('/productos');
+      } else {
+        setErrorMessage(serverResponse.message);
+      }
     }
+  };
+
+  const mockLoginRequest = (email, password) => {
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        if (email === 'test@test.com' && password === 'password') {
+          resolve({ success: true });
+        } else {
+          resolve({
+            success: false,
+            message: 'Usuario o contraseña incorrectos',
+          });
+        }
+      }, 1000);
+    });
   };
 
   useEffect(() => {
@@ -32,67 +59,77 @@ const Login = () => {
   }, [store.theme]);
 
   return (
-    <div className="container div-signup d-flex align-items-center flex-column background-container-forms h-100">
-      {errorMessage && (
-        <div className="alert alert-danger error-message" role="alert">
-          {errorMessage}
-        </div>
-      )}
+    <div className="container div-signup mt-5 mb-5 d-flex align-items-center flex-column background-container-forms h-100">
+      <div>
+        {loading ? (
+          <div className="spinner-border text-primary" role="status">
+            <span className="visually-hidden">Iniciando Sesión...</span>
+          </div>
+        ) : (
+          errorMessage && (
+            <div className="alert alert-danger error-message" role="alert">
+              {errorMessage}
+            </div>
+          )
+        )}
+      </div>
       <div className="signup-header mb-2">
         <h2 className="mt-3">
           Iniciar Sesión
           <i className="fas fa-sign-in-alt"></i>
         </h2>
       </div>
-      <form className="contenedor-form mb-5" onSubmit={submitHandler}>
-        <div className="d-flex justify-content-center flex-column align-items-center">
-          <div className="div-input-interno w-100">
-            <label htmlFor="inputEmail" className="form-label"></label>
-            <input
-              type="email"
-              className="form-control"
-              id="inputEmail"
-              aria-describedby="emailHelp"
-              autoComplete="off"
-              value={email}
-              onChange={(e) => {
-                setEmail(e.target.value);
-                setErrorMessage('');
-              }}
-              required
-              placeholder="Correo Electrónico"
-            />
+      {!loading && (
+        <form className="contenedor-form mb-5" onSubmit={submitHandler}>
+          <div className="d-flex justify-content-center flex-column align-items-center">
+            <div className="div-input-interno w-100">
+              <label htmlFor="inputEmail" className="form-label"></label>
+              <input
+                type="email"
+                className="form-control"
+                id="inputEmail"
+                aria-describedby="emailHelp"
+                autoComplete="off"
+                value={email}
+                onChange={(e) => {
+                  setEmail(e.target.value);
+                  setErrorMessage('');
+                }}
+                required
+                placeholder="Correo Electrónico"
+              />
+            </div>
           </div>
-        </div>
-        <div className="mb-4 d-flex justify-content-center flex-column align-items-center">
-          <div className="div-input-interno w-100">
-            <label htmlFor="inputPassword1" className="form-label"></label>
-            <input
-              type="password"
-              className="form-control"
-              id="exampleInputPassword1"
-              autoComplete="off"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
-              placeholder="Contraseña"
-            />
+          <div className="mb-4 d-flex justify-content-center flex-column align-items-center">
+            <div className="div-input-interno w-100">
+              <label htmlFor="inputPassword1" className="form-label"></label>
+              <input
+                type="password"
+                className="form-control"
+                id="exampleInputPassword1"
+                autoComplete="off"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+                placeholder="Contraseña"
+              />
+            </div>
           </div>
-        </div>
 
-        <div className="question-mark">
-          <div>
-            ¿Aún no tienes cuenta? <Link to={'/signup'}>¡Regístrate!</Link>
+          <div className="question-mark">
+            <div>
+              ¿Aún no tienes cuenta? <Link to={'/signup'}>¡Regístrate!</Link>
+            </div>
           </div>
-        </div>
 
-        <button
-          type="submit"
-          className="btn button-primary rounded-1 w-100 mt-5"
-        >
-          Iniciar Sesión
-        </button>
-      </form>
+          <button
+            type="submit"
+            className="btn button-primary rounded-1 w-100 mt-5"
+          >
+            Iniciar Sesión
+          </button>
+        </form>
+      )}
       <WhatsAppButton
         handleOpenWhatsApp={actions.handleOpenWhatsApp}
         showModal={store.showModal}
