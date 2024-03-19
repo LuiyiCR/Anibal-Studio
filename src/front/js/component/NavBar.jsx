@@ -2,6 +2,7 @@ import React, { useContext, useRef } from 'react';
 import { Context } from '../store/appContext';
 import { Link } from 'react-router-dom';
 import logoImgUrl from '../../img/logo/logo-sin-fondo-letras-negras.png';
+import logo2ImgUrl from '../../img/logo/logo.png';
 import '../../styles/NavBar.css';
 
 export const NavBar = () => {
@@ -21,7 +22,7 @@ export const NavBar = () => {
     <nav className="navbar navbar-expand-lg navbar-light">
       <div className="container">
         <Link to="/" className="navbar-brand mb-0 h1">
-          <img src={logoImgUrl} alt="Your Logo" className="logo" />
+          <img src={logoImgUrl} alt="Aníbal Studio Logo" className="logo" />
         </Link>
         <div className="menu-switcher">
           <button
@@ -80,18 +81,18 @@ export const NavBar = () => {
                 </button>
               </Link>
             </div>
+            <input
+              className="theme-switch__input"
+              type="checkbox"
+              id="theme-switch"
+              checked={store.theme === 'dark-theme'}
+              onChange={handleThemeChange}
+            />
+            <label htmlFor="theme-switch" className="theme-switch">
+              <i className="fas fa-moon"></i>
+              <i className="fas fa-sun"></i>
+            </label>
           </div>
-          <input
-            className="theme-switch__input"
-            type="checkbox"
-            id="theme-switch"
-            checked={store.theme === 'dark-theme'}
-            onChange={handleThemeChange}
-          />
-          <label htmlFor="theme-switch" className="theme-switch">
-            <i className="fas fa-moon"></i>
-            <i className="fas fa-sun"></i>
-          </label>
         </div>
       </div>
     </nav>
