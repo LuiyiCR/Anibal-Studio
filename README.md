@@ -1,81 +1,60 @@
-# WebApp boilerplate with React JS and Flask API
+# Anibal Studio WebApp
 
-Build web applications using React.js for the front end and python/flask for your backend API.
+Anibal Studio is a modern web application designed to streamline the management and product buying of beauty salons. Built with a React.js frontend and a Python/Flask Alchemy backend, it offers secure authentication via Firebase and efficient data storage solutions.
 
-- Documentation can be found here: https://start.4geeksacademy.com/starters/react-flask
-- Here is a video on [how to use this template](https://www.loom.com/share/f37c6838b3f1496c95111e515e83dd9b)
-- Integrated with Pipenv for package managing.
-- Fast deployment to heroku [in just a few steps here](https://start.4geeksacademy.com/backend/deploy-heroku-posgres).
-- Use of .env file.
-- SQLAlchemy integration for database abstraction.
+## Key Features
 
-### 1) Installation:
+- User-friendly interface for clients to buy products.
+- Secure user authentication using Firebase.
+- Backend API developed with Python and Flask Alchemy.
+- Real-time updates and management of salon products and services.
 
-> If you use Github Codespaces (recommended) or Gitpod this template will already come with Python, Node and the Posgres Database installed. If you are working locally make sure to install Python 3.10, Node 
+## Technologies Used
 
-It is recomended to install the backend first, make sure you have Python 3.8, Pipenv and a database engine (Posgress recomended)
+- **Frontend**: React.js
+- **Backend**: Python, Flask Alchemy
+  
+## Database
 
-1. Install the python packages: `$ pipenv install`
-2. Create a .env file based on the .env.example: `$ cp .env.example .env`
-3. Install your database engine and create your database, depending on your database you have to create a DATABASE_URL variable with one of the possible values, make sure you replace the valudes with your database information:
+- **Primary Database**: Firebase Realtime Database for storing user data and salon products.
+- **Authentication**: Firebase Authentication for managing user sign-in and security.
 
-| Engine    | DATABASE_URL                                        |
-| --------- | --------------------------------------------------- |
-| SQLite    | sqlite:////test.db                                  |
-| MySQL     | mysql://username:password@localhost:port/example    |
-| Postgress | postgres://username:password@localhost:5432/example |
+## Getting Started
 
-4. Migrate the migrations: `$ pipenv run migrate` (skip if you have not made changes to the models on the `./src/api/models.py`)
-5. Run the migrations: `$ pipenv run upgrade`
-6. Run the application: `$ pipenv run start`
+### Prerequisites
 
-> Note: Codespaces users can connect to psql by typing: `psql -h localhost -U gitpod example`
+- Python 3.8+
+- Node.js 14+
+- Pipenv
 
-### Undo a migration
+### Installation
 
-You are also able to undo a migration by running
+1. Clone the repository and navigate to the project directory.
+2. Install backend dependencies: `pipenv install`.
+3. Set up your environment variables in a `.env` file based on `.env.example`.
+4. Initialize the database with `pipenv run migrate` and `pipenv run upgrade`.
+5. Start the backend server: `pipenv run start`.
+6. Install frontend dependencies: `npm install`.
+7. Launch the frontend development server: `npm run start`.
 
-```sh
-$ pipenv run downgrade
-```
+## Deployment
 
-### Backend Populate Table Users
+This project is ready to deploy on platforms like Render.com and Heroku. Follow the deployment guide for detailed instructions.
 
-To insert test users in the database execute the following command:
+## Contributing
 
-```sh
-$ flask insert-test-users 5
-```
+Contributions are welcome! Please read our contributing guidelines for details on how to submit pull requests to the project.
 
-And you will see the following message:
+## License
 
-```
-  Creating test users
-  test_user1@test.com created.
-  test_user2@test.com created.
-  test_user3@test.com created.
-  test_user4@test.com created.
-  test_user5@test.com created.
-  Users created successfully!
-```
+This project is not open source and all rights are reserved. Please contact the project maintainers for more information on the usage and distribution of this software.
 
-### **Important note for the database and the data inside it**
+## Acknowledgments
 
-Every Github codespace environment will have **its own database**, so if you're working with more people eveyone will have a different database and different records inside it. This data **will be lost**, so don't spend too much time manually creating records for testing, instead, you can automate adding records to your database by editing ```commands.py``` file inside ```/src/api``` folder. Edit line 32 function ```insert_test_data``` to insert the data according to your model (use the function ```insert_test_users``` above as an example). Then, all you need to do is run ```pipenv run insert-test-data```.
+- 4Geeks Academy for providing the initial boilerplate.
+- All contributors who have helped shape Anibal Studio into what it is today.
 
-### Front-End Manual Installation:
+## Contact
 
--   Make sure you are using node version 14+ and that you have already successfully installed and runned the backend.
+For any inquiries or issues, please open an issue on the GitHub repository or contact the project maintainers at luiyi_salazar@hotmail.com. You can also connect with me on LinkedIn (https://www.linkedin.com/in/luis-salazar-o-b783981a3/)
 
-1. Install the packages: `$ npm install`
-2. Start coding! start the webpack dev server `$ npm run start`
-
-## Publish your website!
-
-This boilerplate it's 100% read to deploy with Render.com and Heroku in a matter of minutes. Please read the [official documentation about it](https://start.4geeksacademy.com/deploy).
-
-### Contributors
-
-This template was built as part of the 4Geeks Academy [Coding Bootcamp](https://4geeksacademy.com/us/coding-bootcamp) by [Alejandro Sanchez](https://twitter.com/alesanchezr) and many other contributors. Find out more about our [Full Stack Developer Course](https://4geeksacademy.com/us/coding-bootcamps/part-time-full-stack-developer), and [Data Science Bootcamp](https://4geeksacademy.com/us/coding-bootcamps/datascience-machine-learning).
-
-You can find other templates and resources like this at the [school github page](https://github.com/4geeksacademy/).
