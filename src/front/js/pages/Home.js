@@ -10,7 +10,7 @@ import { NuestrasCapacitacionesSection } from '../component/NuestrasCapacitacion
 import { TestimoniosSection } from '../component/TestimoniosSection.jsx';
 import BackToTopButton from '../component/BackToTopButton.jsx';
 import { WhatsAppButton } from '../component/WhatsAppButton.jsx';
-import heroImgUrl from '../../img/portada-facebook.png';
+import heroImgUrl from '../../img/logo/portada-facebook.png';
 import cap1ImgUrl from '../../img/capacitaciones/cap1.jpeg';
 import cap2ImgUrl from '../../img/capacitaciones/cap2.jpeg';
 import buen1ImgUrl from '../../img/buen-dia/buen1.jpg';

@@ -80,16 +80,14 @@ const Login = () => {
         </h2>
       </div>
       {!loading && (
-        <form className="contenedor-form mb-5" onSubmit={submitHandler}>
+        <form className="container-form mb-5" onSubmit={submitHandler}>
           <div className="d-flex justify-content-center flex-column align-items-center">
-            <div className="div-input-interno w-100">
-              <label htmlFor="inputEmail" className="form-label"></label>
+            <div className="form-floating div-input-interno w-100 mb-4">
               <input
                 type="email"
                 className="form-control"
-                id="inputEmail"
+                id="floatingMail"
                 aria-describedby="emailHelp"
-                autoComplete="off"
                 value={email}
                 onChange={(e) => {
                   setEmail(e.target.value);
@@ -98,21 +96,26 @@ const Login = () => {
                 required
                 placeholder="Correo Electrónico"
               />
+              <label htmlFor="floatingMail" className="form-label">
+                Correo Electrónico:
+              </label>
             </div>
           </div>
           <div className="mb-4 d-flex justify-content-center flex-column align-items-center">
-            <div className="div-input-interno w-100">
-              <label htmlFor="inputPassword1" className="form-label"></label>
+            <div className="form-floating div-input-interno w-100">
               <input
                 type="password"
                 className="form-control"
-                id="exampleInputPassword1"
+                id="floatingPassword"
                 autoComplete="off"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
                 placeholder="Contraseña"
               />
+              <label htmlFor="floatingPassword" className="form-label">
+                Contraseña:
+              </label>
             </div>
           </div>
 

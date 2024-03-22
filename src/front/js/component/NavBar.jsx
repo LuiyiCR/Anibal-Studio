@@ -72,7 +72,7 @@ export const NavBar = () => {
                 Acerca De Nosotros
               </Link>
               <Link
-                to="/iniciar-sesion"
+                to="/login"
                 className="nav-item nav-link"
                 onClick={closeNavbar}
               >

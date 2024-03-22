@@ -1,4 +1,4 @@
-.contenedor-form {
+.container-form {
   width: 90%;
 }
 
@@ -17,6 +17,11 @@
 .light-theme .form-control {
   color: black;
   background-color: #f0f0f0;
+}
+
+.dark-theme .form-control:focus {
+  color: white;
+  background-color: #333;
 }
 
 .fas.fa-sign-in-alt {
