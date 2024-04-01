@@ -79,7 +79,7 @@ export const Home = () => {
       <div className="row align-items-center">
         <div className="col-lg-12 text-center mb-5">
           <Link
-            to="/iniciar-sesion"
+            to="/login"
             className="btn btn-light text-black rounded-3"
             type="button"
           >

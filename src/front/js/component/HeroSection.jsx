@@ -20,7 +20,7 @@ export const HeroSection = ({ heroImgUrl }) => {
 
             <div className="btn-group gap-3 mb-4 w-100">
               <Link
-                to="/productos"
+                to="/products"
                 className="btn button-primary rounded-1"
                 type="button"
               >
