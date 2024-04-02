@@ -119,18 +119,24 @@ const Login = () => {
             </div>
           </div>
 
-          <div className="question-mark">
+          <button
+            type="submit"
+            className="btn button-primary rounded-1 w-100 mt-2 mb-4"
+          >
+            Iniciar Sesión
+          </button>
+
+          <div className="forgot-password mb-4 d-flex justify-content-center">
+            <div>
+              <Link to={'/forgot-password'}>¡Olvidé mi contraseña!</Link>
+            </div>
+          </div>
+
+          <div className="sign-up-question d-flex justify-content-center">
             <div>
               ¿Aún no tienes cuenta? <Link to={'/signup'}>¡Regístrate!</Link>
             </div>
           </div>
-
-          <button
-            type="submit"
-            className="btn button-primary rounded-1 w-100 mt-5"
-          >
-            Iniciar Sesión
-          </button>
         </form>
       )}
       <WhatsAppButton

@@ -38,7 +38,9 @@ const SignUp = () => {
             onChange={(e) => setName(e.target.value)}
             required
           />
-          <label htmlFor="floatingName">Nombre:</label>
+          <label htmlFor="floatingName">
+            Nombre: <span className="text-danger">* </span>
+          </label>
         </div>
         <div className="form-floating mb-3">
           <input
@@ -51,7 +53,7 @@ const SignUp = () => {
             required
           />
           <label htmlFor="floatingLastName" className="form-label">
-            Apellido:
+            Apellido: <span className="text-danger">* </span>
           </label>
         </div>
         <div className="form-floating mb-3">
@@ -79,7 +81,7 @@ const SignUp = () => {
             required
           />
           <label htmlFor="floatingEmail" className="form-label">
-            Correo Electrónico:
+            Correo Electrónico: <span className="text-danger">* </span>
           </label>
         </div>
         <div className="form-floating mb-3">
@@ -93,7 +95,7 @@ const SignUp = () => {
             required
           />
           <label htmlFor="floatingPassword" className="form-label">
-            Contraseña:
+            Contraseña: <span className="text-danger">* </span>
           </label>
         </div>
         <div className="form-floating mb-3">
@@ -107,10 +109,10 @@ const SignUp = () => {
             required
           />
           <label htmlFor="floatingConfirmPassword" className="form-label">
-            Confirmar contraseña:
+            Confirmar contraseña: <span className="text-danger">* </span>
           </label>
         </div>
-        <div className="question-mark">
+        <div className="already-user d-flex justify-content-center">
           <div>
             ¿Ya tienes cuenta? <Link to={'/login'}>¡Inicia Sesión!</Link>
           </div>
