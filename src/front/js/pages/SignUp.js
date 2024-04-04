@@ -108,7 +108,10 @@ const SignUp = () => {
             onChange={(e) => setPassword(e.target.value)}
             required
           />
-          <label htmlFor="floatingConfirmPassword" className="form-label">
+          <label
+            htmlFor="floatingConfirmPassword"
+            className="form-label text-muted"
+          >
             Confirmar contraseña: <span className="text-danger">* </span>
           </label>
         </div>
