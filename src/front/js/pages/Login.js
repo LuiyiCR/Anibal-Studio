@@ -96,7 +96,7 @@ const Login = () => {
                 required
                 placeholder="Correo Electrónico"
               />
-              <label htmlFor="floatingMail" className="form-label">
+              <label htmlFor="floatingMail" className="form-label text-muted">
                 Correo Electrónico:
               </label>
             </div>
@@ -113,7 +113,10 @@ const Login = () => {
                 required
                 placeholder="Contraseña"
               />
-              <label htmlFor="floatingPassword" className="form-label">
+              <label
+                htmlFor="floatingPassword"
+                className="form-label text-muted"
+              >
                 Contraseña:
               </label>
             </div>

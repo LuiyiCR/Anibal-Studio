@@ -38,7 +38,7 @@ const SignUp = () => {
             onChange={(e) => setName(e.target.value)}
             required
           />
-          <label htmlFor="floatingName">
+          <label htmlFor="floatingName" className="form-label text-muted">
             Nombre: <span className="text-danger">* </span>
           </label>
         </div>
@@ -52,7 +52,7 @@ const SignUp = () => {
             onChange={(e) => setLastName(e.target.value)}
             required
           />
-          <label htmlFor="floatingLastName" className="form-label">
+          <label htmlFor="floatingLastName" className="form-label text-muted">
             Apellido: <span className="text-danger">* </span>
           </label>
         </div>
@@ -66,8 +66,8 @@ const SignUp = () => {
             onChange={(e) => setPhone(e.target.value)}
             required
           />
-          <label htmlFor="floatingPhone" className="form-label">
-            Teléfono:
+          <label htmlFor="floatingPhone" className="form-label text-muted">
+            Teléfono: (Opcional)
           </label>
         </div>
         <div className="form-floating mb-3">
@@ -80,7 +80,7 @@ const SignUp = () => {
             onChange={(e) => setEmail(e.target.value)}
             required
           />
-          <label htmlFor="floatingEmail" className="form-label">
+          <label htmlFor="floatingEmail" className="form-label text-muted">
             Correo Electrónico: <span className="text-danger">* </span>
           </label>
         </div>
@@ -94,7 +94,7 @@ const SignUp = () => {
             onChange={(e) => setPassword(e.target.value)}
             required
           />
-          <label htmlFor="floatingPassword" className="form-label">
+          <label htmlFor="floatingPassword" className="form-label text-muted">
             Contraseña: <span className="text-danger">* </span>
           </label>
         </div>
@@ -115,11 +115,13 @@ const SignUp = () => {
             Confirmar contraseña: <span className="text-danger">* </span>
           </label>
         </div>
+        <p className="text-danger">* Campos requeridos</p>
         <div className="already-user d-flex justify-content-center">
           <div>
             ¿Ya tienes cuenta? <Link to={'/login'}>¡Inicia Sesión!</Link>
           </div>
         </div>
+
         <button
           type="submit"
           className="btn button-primary rounded-1 w-100 mt-5"
