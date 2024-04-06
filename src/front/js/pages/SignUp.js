@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { Context } from '../store/appContext';
 import { Link } from 'react-router-dom';
+import { useAuth } from '../store/appContext';
 
 const SignUp = () => {
   const { store, actions } = useContext(Context);
@@ -10,9 +11,13 @@ const SignUp = () => {
   const [phone, setPhone] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
+  const { signup } = useAuth();
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    signup(email, password);
   };
 
   useEffect(() => {
@@ -103,9 +108,9 @@ const SignUp = () => {
             type="password"
             className="form-control"
             id="floatingConfirmPassword"
-            value={password}
+            value={confirmPassword}
             placeholder="Confirmar contraseña"
-            onChange={(e) => setPassword(e.target.value)}
+            onChange={(e) => setConfirmPassword(e.target.value)}
             required
           />
           <label
