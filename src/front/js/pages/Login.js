@@ -9,7 +9,8 @@ const Login = () => {
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [errorMessage, setErrorMessage] = useState('');
+  const [emailErrorMessage, setEmailErrorMessage] = useState('');
+  const [passwordErrorMessage, setPasswordErrorMessage] = useState('');
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
 
@@ -19,11 +20,14 @@ const Login = () => {
     const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
     if (!emailRegex.test(email)) {
-      setErrorMessage('¡Por favor, ingrese un correo electrónico válido!');
+      setEmailErrorMessage('¡Por favor, ingrese un correo electrónico válido!');
     } else if (password.length < 6) {
-      setErrorMessage('¡La contraseña debe tener al menos 6 caracteres!');
+      setPasswordErrorMessage(
+        '¡La contraseña debe tener al menos 6 caracteres!'
+      );
     } else {
-      setErrorMessage('');
+      setEmailErrorMessage('');
+      setPasswordErrorMessage('');
       setLoading(true);
 
       const serverResponse = await mockLoginRequest(email, password);
@@ -34,7 +38,7 @@ const Login = () => {
         console.log('Login successful');
         navigate('/productos');
       } else {
-        setErrorMessage(serverResponse.message);
+        setEmailErrorMessage(serverResponse.message);
       }
     }
   };
@@ -66,11 +70,19 @@ const Login = () => {
             <span className="visually-hidden">Iniciando Sesión...</span>
           </div>
         ) : (
-          errorMessage && (
-            <div className="alert alert-danger error-message" role="alert">
-              {errorMessage}
-            </div>
-          )
+          <>
+            {emailErrorMessage && (
+              <div className="alert alert-danger error-message" role="alert">
+                {emailErrorMessage}
+              </div>
+            )}
+
+            {passwordErrorMessage && (
+              <div className="alert alert-danger error-message" role="alert">
+                {passwordErrorMessage}
+              </div>
+            )}
+          </>
         )}
       </div>
       <div className="signup-header mb-2">
@@ -91,7 +103,7 @@ const Login = () => {
                 value={email}
                 onChange={(e) => {
                   setEmail(e.target.value);
-                  setErrorMessage('');
+                  setEmailErrorMessage('');
                 }}
                 required
                 placeholder="Correo Electrónico"
@@ -109,7 +121,10 @@ const Login = () => {
                 id="floatingPassword"
                 autoComplete="off"
                 value={password}
-                onChange={(e) => setPassword(e.target.value)}
+                onChange={(e) => {
+                  setPassword(e.target.value);
+                  setPasswordErrorMessage('');
+                }}
                 required
                 placeholder="Contraseña"
               />
