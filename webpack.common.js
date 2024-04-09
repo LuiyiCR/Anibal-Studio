@@ -49,6 +49,7 @@ module.exports = {
       favicon: 'tablogoani.png',
       template: 'template.html',
     }),
-    new Dotenv({ safe: true, systemvars: true }),
+    new Dotenv({ path: './.env', safe: true, systemvars: true }),
+    new Dotenv({ path: './.env.local', safe: true, systemvars: true }),
   ],
 };
