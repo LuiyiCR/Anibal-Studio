@@ -19,9 +19,9 @@ const Login = () => {
     const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
     if (!emailRegex.test(email)) {
-      setErrorMessage('Por favor, ingrese un correo electrónico válido');
+      setErrorMessage('¡Por favor, ingrese un correo electrónico válido!');
     } else if (password.length < 6) {
-      setErrorMessage('La contraseña debe tener al menos 6 caracteres');
+      setErrorMessage('¡La contraseña debe tener al menos 6 caracteres!');
     } else {
       setErrorMessage('');
       setLoading(true);
@@ -47,7 +47,7 @@ const Login = () => {
         } else {
           resolve({
             success: false,
-            message: 'Usuario o contraseña incorrectos',
+            message: '¡Usuario o contraseña incorrectos!',
           });
         }
       }, 1000);

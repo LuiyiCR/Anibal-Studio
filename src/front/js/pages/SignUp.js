@@ -13,11 +13,25 @@ const SignUp = () => {
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const { signup } = useAuth();
+  const [error, setError] = useState('');
+  const [loading, setLoading] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    signup(email, password);
+    if (password !== confirmPassword) {
+      return setError('¡Las contraseñas no coinciden!');
+    }
+
+    try {
+      setError('');
+      setLoading(true);
+      await signup(email, password);
+    } catch {
+      setError('¡Error al crear la cuenta!');
+    }
+
+    setLoading(false);
   };
 
   useEffect(() => {
@@ -31,6 +45,7 @@ const SignUp = () => {
           Registro
           <i className="fas fa-sign-in-alt"></i>
         </h2>
+        {error && <div className="alert alert-danger">{error}</div>}
       </div>
       <form onSubmit={handleSubmit} className="container-form">
         <div className="form-floating mb-3">
@@ -69,7 +84,6 @@ const SignUp = () => {
             value={phone}
             placeholder="Teléfono"
             onChange={(e) => setPhone(e.target.value)}
-            required
           />
           <label htmlFor="floatingPhone" className="form-label text-muted">
             Teléfono: (Opcional)
@@ -128,6 +142,7 @@ const SignUp = () => {
         </div>
 
         <button
+          disabled={loading}
           type="submit"
           className="btn button-primary rounded-1 w-100 mt-5"
         >

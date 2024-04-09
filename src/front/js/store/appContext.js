@@ -11,6 +11,7 @@ export function useAuth() {
 const injectContext = (PassedComponent) => {
   const StoreWrapper = (props) => {
     const [currentUser, setCurrentUser] = useState(null);
+    const [loading, setLoading] = useState(true);
     //this will be passed as the contenxt value
     const [state, setState] = useState(
       getState({
@@ -27,6 +28,7 @@ const injectContext = (PassedComponent) => {
     useEffect(() => {
       const unsubscribe = auth.onAuthStateChanged((user) => {
         setCurrentUser(user);
+        setLoading(false);
         setState({
           store: { ...state.store, currentUser: user },
           actions: { ...state.actions },
@@ -48,7 +50,7 @@ const injectContext = (PassedComponent) => {
 
     return (
       <Context.Provider value={value}>
-        <PassedComponent {...props} />
+        {!loading && <PassedComponent {...props} />}
       </Context.Provider>
     );
   };
