@@ -21,8 +21,18 @@
 }
 
 .dark-theme .form-control:focus {
-  color: white;
-  background-color: #333;
+  transition: background-color 5000s ease-in-out 0s;
+  color: #fff;
+  background-color: none;
+}
+
+.dark-theme .form-control:-webkit-autofill,
+.dark-theme .form-control:-webkit-autofill:hover,
+.dark-theme .form-control:-webkit-autofill:focus,
+.dark-theme .form-control:-webkit-autofill:active {
+  transition: background-color 5000s ease-in-out 0s;
+  -webkit-text-fill-color: #fff;
+  background-color: #444;
 }
 
 .fas.fa-sign-in-alt {
