@@ -1,10 +1,13 @@
 import React, { useState, useEffect, useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Context } from '../store/appContext';
 import { Link } from 'react-router-dom';
 import { useAuth } from '../store/appContext';
+import { set } from 'firebase/database';
 
 const SignUp = () => {
   const { store, actions } = useContext(Context);
+  const navigate = useNavigate();
 
   const [name, setName] = useState('');
   const [lastName, setLastName] = useState('');
@@ -15,6 +18,7 @@ const SignUp = () => {
   const { signup } = useAuth();
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState('');
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -27,11 +31,16 @@ const SignUp = () => {
       setError('');
       setLoading(true);
       await signup(email, password);
-    } catch {
+      setLoading(false);
+      setSuccess('¡Tu usuario se ha registrado exitosamente!');
+      setTimeout(() => {
+        navigate('/products');
+      }, 3000);
+    } catch (error) {
+      console.error(error);
       setError('¡Error al crear la cuenta!');
+      setSuccess('');
     }
-
-    setLoading(false);
   };
 
   useEffect(() => {
@@ -40,6 +49,13 @@ const SignUp = () => {
 
   return (
     <div className="container div-signup mt-5 mb-5 d-flex align-items-center flex-column background-container-forms h-100">
+      {loading && (
+        <React.Fragment>
+          <div className="spinner-border text-primary" role="status"></div>
+          <span className="text-primary">¡Registrando tu cuenta...!</span>
+        </React.Fragment>
+      )}
+      {success && <div className="alert alert-success">{success}</div>}
       <div className="signup-header mb-2">
         <h2 className="mt-3">
           Registro
