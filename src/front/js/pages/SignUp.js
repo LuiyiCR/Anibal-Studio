@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { Context } from '../store/appContext';
 import { Link } from 'react-router-dom';
 import { useAuth } from '../store/appContext';
+import InputMask from 'react-input-mask';
 import { set } from 'firebase/database';
 
 const SignUp = () => {
@@ -19,12 +20,25 @@ const SignUp = () => {
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState('');
+  const isValidEmail = (email) => {
+    const re =
+      /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(String(email).toLowerCase());
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (password !== confirmPassword) {
       return setError('¡Las contraseñas no coinciden!');
+    }
+
+    if (!isValidEmail(email)) {
+      return setError('¡El correo electrónico no es válido!');
+    }
+
+    if (password.length < 6) {
+      return setError('¡La contraseña debe tener al menos 6 caracteres!');
     }
 
     try {
@@ -40,6 +54,7 @@ const SignUp = () => {
       console.error(error);
       setError('¡Error al crear la cuenta!');
       setSuccess('');
+      setLoading(false);
     }
   };
 
@@ -71,7 +86,12 @@ const SignUp = () => {
             id="floatingName"
             value={name}
             placeholder="Nombre:"
-            onChange={(e) => setName(e.target.value)}
+            onChange={(e) => setName(e.target.value.toUpperCase())}
+            onKeyPress={(e) => {
+              if (!/[a-zA-Z\s]/.test(e.key)) {
+                e.preventDefault();
+              }
+            }}
             required
           />
           <label htmlFor="floatingName" className="form-label text-muted">
@@ -85,7 +105,12 @@ const SignUp = () => {
             id="floatingLastName"
             value={lastName}
             placeholder="Apellido"
-            onChange={(e) => setLastName(e.target.value)}
+            onChange={(e) => setLastName(e.target.value.toUpperCase())}
+            onKeyPress={(e) => {
+              if (!/[a-zA-Z\s]/.test(e.key)) {
+                e.preventDefault();
+              }
+            }}
             required
           />
           <label htmlFor="floatingLastName" className="form-label text-muted">
@@ -93,14 +118,21 @@ const SignUp = () => {
           </label>
         </div>
         <div className="form-floating mb-3">
-          <input
-            type="tel"
-            className="form-control"
-            id="floatingPhone"
+          <InputMask
+            mask="(506) 9999-9999"
             value={phone}
-            placeholder="Teléfono"
             onChange={(e) => setPhone(e.target.value)}
-          />
+          >
+            {(inputProps) => (
+              <input
+                {...inputProps}
+                type="tel"
+                className="form-control"
+                id="floatingPhone"
+                placeholder="Teléfono"
+              />
+            )}
+          </InputMask>
           <label htmlFor="floatingPhone" className="form-label text-muted">
             Teléfono: (Opcional)
           </label>
@@ -112,7 +144,10 @@ const SignUp = () => {
             id="floatingEmail"
             value={email}
             placeholder="Correo Electrónico"
-            onChange={(e) => setEmail(e.target.value)}
+            onChange={(e) => {
+              setEmail(e.target.value.toLowerCase());
+              setError('');
+            }}
             required
           />
           <label htmlFor="floatingEmail" className="form-label text-muted">
@@ -126,7 +161,10 @@ const SignUp = () => {
             id="floatingPassword"
             value={password}
             placeholder="Contraseña"
-            onChange={(e) => setPassword(e.target.value)}
+            onChange={(e) => {
+              setPassword(e.target.value);
+              setError('');
+            }}
             required
           />
           <label htmlFor="floatingPassword" className="form-label text-muted">
@@ -140,7 +178,10 @@ const SignUp = () => {
             id="floatingConfirmPassword"
             value={confirmPassword}
             placeholder="Confirmar contraseña"
-            onChange={(e) => setConfirmPassword(e.target.value)}
+            onChange={(e) => {
+              setConfirmPassword(e.target.value);
+              setError('');
+            }}
             required
           />
           <label
