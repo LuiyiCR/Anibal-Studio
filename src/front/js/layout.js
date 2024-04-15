@@ -9,6 +9,7 @@ import { Footer } from './component/Footer.jsx';
 import Login from './pages/Login';
 import SignUp from './pages/SignUp.js';
 import Products from './pages/Products.js';
+import ForgotPassword from './pages/ForgotPassword.js';
 
 //create your first component
 const Layout = () => {
@@ -29,6 +30,7 @@ const Layout = () => {
             <Route element={<Login />} path="/login" />
             <Route element={<SignUp />} path="/signup" />
             <Route element={<Products />} path="/products" />
+            <Route element={<ForgotPassword />} path="/forgot-password" />
             <Route element={<h1>Not found!</h1>} />
           </Routes>
           <Footer />

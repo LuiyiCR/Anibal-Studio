@@ -191,7 +191,9 @@ const SignUp = () => {
             Confirmar contraseña: <span className="text-danger">* </span>
           </label>
         </div>
-        <p className="text-danger">* Campos requeridos</p>
+        <p className="text-danger" style={{ fontSize: '0.8rem' }}>
+          * Campos requeridos
+        </p>
         <div className="already-user d-flex justify-content-center">
           <div>
             ¿Ya tienes cuenta? <Link to={'/login'}>¡Inicia Sesión!</Link>
