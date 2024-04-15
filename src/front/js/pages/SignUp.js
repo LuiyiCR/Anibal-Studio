@@ -87,7 +87,7 @@ const SignUp = () => {
             value={name}
             placeholder="Nombre:"
             onChange={(e) => setName(e.target.value.toUpperCase())}
-            onKeyPress={(e) => {
+            onKeyDown={(e) => {
               if (!/[a-zA-Z\s]/.test(e.key)) {
                 e.preventDefault();
               }
@@ -106,7 +106,7 @@ const SignUp = () => {
             value={lastName}
             placeholder="Apellido"
             onChange={(e) => setLastName(e.target.value.toUpperCase())}
-            onKeyPress={(e) => {
+            onKeyDown={(e) => {
               if (!/[a-zA-Z\s]/.test(e.key)) {
                 e.preventDefault();
               }

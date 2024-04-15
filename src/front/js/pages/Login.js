@@ -3,6 +3,7 @@ import { Context } from '../store/appContext';
 import { useNavigate, Link } from 'react-router-dom';
 import { WhatsAppButton } from '../component/WhatsAppButton.jsx';
 import '../../styles/Login.css';
+import { auth } from '../../../firebase.js';
 
 const Login = () => {
   const { store, actions } = useContext(Context);
@@ -21,41 +22,40 @@ const Login = () => {
 
     if (!emailRegex.test(email)) {
       setEmailErrorMessage('¡Por favor, ingrese un correo electrónico válido!');
-    } else if (password.length < 6) {
-      setPasswordErrorMessage(
-        '¡La contraseña debe tener al menos 6 caracteres!'
-      );
+    } else if (password.length === 0) {
+      setPasswordErrorMessage('¡Por favor, ingrese una contraseña!');
     } else {
       setEmailErrorMessage('');
       setPasswordErrorMessage('');
       setLoading(true);
 
-      const serverResponse = await mockLoginRequest(email, password);
+      const serverResponse = await loginRequest(email, password);
 
       setLoading(false);
 
       if (serverResponse.success) {
         console.log('Login successful');
-        navigate('/productos');
+        navigate('/products');
       } else {
         setEmailErrorMessage(serverResponse.message);
       }
     }
   };
 
-  const mockLoginRequest = (email, password) => {
-    return new Promise((resolve) => {
-      setTimeout(() => {
-        if (email === 'test@test.com' && password === 'password') {
-          resolve({ success: true });
-        } else {
-          resolve({
-            success: false,
-            message: '¡Usuario o contraseña incorrectos!',
-          });
-        }
-      }, 1000);
-    });
+  const loginRequest = async (email, password) => {
+    try {
+      await auth.signInWithEmailAndPassword(email, password);
+      return { success: true };
+    } catch (error) {
+      console.error(error);
+      let message = '¡Usuario o contraseña incorrectos!';
+      if (error.code === 'auth/user-not-found') {
+        message = '¡El usuario no existe!';
+      } else if (error.code === 'auth/wrong-password') {
+        message = '¡Contraseña incorrecta!';
+      }
+      return { success: false, message };
+    }
   };
 
   useEffect(() => {
