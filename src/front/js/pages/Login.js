@@ -44,7 +44,11 @@ const Login = () => {
 
   const loginRequest = async (email, password) => {
     try {
-      await auth.signInWithEmailAndPassword(email, password);
+      const userCredential = await auth.signInWithEmailAndPassword(
+        email,
+        password
+      );
+      actions.setUser(userCredential.user);
       return { success: true };
     } catch (error) {
       console.error(error);

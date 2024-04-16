@@ -4,6 +4,9 @@ const getState = ({ getStore, getActions, setStore }) => {
       theme: localStorage.getItem('theme') || 'dark-theme',
     },
     actions: {
+      setUser: (user) => {
+        setStore({ user });
+      },
       toggleTheme: () => {
         const currentTheme = getStore().theme;
         const newTheme =
