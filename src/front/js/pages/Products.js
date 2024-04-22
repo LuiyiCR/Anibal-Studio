@@ -8,7 +8,7 @@ const Products = () => {
   console.log(store.user);
 
   return (
-    <div>
+    <div className="container mt-5 mb-5 d-flex align-items-center flex-column h-100">
       <h1>Productos</h1>
       {store.user && <LogoutButton />}
     </div>

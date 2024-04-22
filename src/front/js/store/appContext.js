@@ -12,7 +12,7 @@ const injectContext = (PassedComponent) => {
   const StoreWrapper = (props) => {
     const [currentUser, setCurrentUser] = useState(null);
     const [loading, setLoading] = useState(true);
-    //this will be passed as the contenxt value
+
     const [state, setState] = useState(
       getState({
         getStore: () => state.store,
@@ -20,7 +20,7 @@ const injectContext = (PassedComponent) => {
         setStore: (updatedStore) =>
           setState({
             store: Object.assign(state.store, updatedStore),
-            actions: { ...state.actions },
+            actions: { ...state.actions, clearUser },
           }),
       })
     );
@@ -42,10 +42,15 @@ const injectContext = (PassedComponent) => {
       await auth.createUserWithEmailAndPassword(email, password);
     };
 
+    const clearUser = () => {
+      setCurrentUser(null);
+    };
+
     const value = {
       ...state,
       currentUser,
       signup,
+      clearUser,
     };
 
     return (

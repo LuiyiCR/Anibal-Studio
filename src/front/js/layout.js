@@ -23,16 +23,16 @@ const Layout = () => {
       <BrowserRouter basename={basename}>
         <ScrollToTop>
           <NavBar />
-          {/* <AuthListener> */}
-          <Routes>
-            <Route element={<Home />} path="/" />
-            <Route element={<Login />} path="/login" />
-            <Route element={<SignUp />} path="/signup" />
-            <Route element={<Products />} path="/products" />
-            <Route element={<ForgotPassword />} path="/forgot-password" />
-            <Route element={<h1>Not found!</h1>} />
-          </Routes>
-          {/* </AuthListener> */}
+          <AuthListener>
+            <Routes>
+              <Route element={<Home />} path="/" />
+              <Route element={<Login />} path="/login" />
+              <Route element={<SignUp />} path="/signup" />
+              <Route element={<Products />} path="/products" />
+              <Route element={<ForgotPassword />} path="/forgot-password" />
+              <Route element={<h1>Not found!</h1>} />
+            </Routes>
+          </AuthListener>
           <Footer />
         </ScrollToTop>
       </BrowserRouter>
