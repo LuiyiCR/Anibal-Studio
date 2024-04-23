@@ -1,14 +1,19 @@
-import React, { useContext } from 'react';
+import React, { useEffect, useContext } from 'react';
 import { Context } from '../store/appContext';
+import { auth } from '../../../firebase.js';
 
 const AuthListener = ({ children }) => {
-  const { currentUser, loading } = useContext(Context);
+  const { actions } = useContext(Context);
 
-  console.log('AuthListener component', currentUser);
+  useEffect(() => {
+    const unsubscribe = auth.onAuthStateChanged((user) => {
+      if (!user) {
+        actions.clearUser();
+      }
+    });
 
-  if (loading) {
-    return <div>Iniciando...</div>;
-  }
+    return unsubscribe;
+  }, []);
 
   return children;
 };

@@ -10,47 +10,55 @@ export function useAuth() {
 
 const injectContext = (PassedComponent) => {
   const StoreWrapper = (props) => {
-    const [currentUser, setCurrentUser] = useState(null);
     const [loading, setLoading] = useState(true);
+    const [user, setUser] = useState(null);
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+    const clearUser = () => {
+      setUser(null);
+      setIsLoggedIn(false);
+    };
 
     const [state, setState] = useState(
       getState({
-        getStore: () => state.store,
-        getActions: () => state.actions,
+        getStore: () => state?.store,
+        getActions: () => state?.actions,
         setStore: (updatedStore) =>
-          setState({
-            store: Object.assign(state.store, updatedStore),
-            actions: { ...state.actions, clearUser },
-          }),
+          setState((prevState) => ({
+            store: Object.assign(prevState.store, updatedStore),
+            actions: { ...prevState.actions, clearUser },
+          })),
       })
     );
 
     useEffect(() => {
       const unsubscribe = auth.onAuthStateChanged((user) => {
-        setCurrentUser(user);
+        setUser(user);
+        setIsLoggedIn(!!user);
         setLoading(false);
-        setState({
-          store: { ...state.store, currentUser: user },
-          actions: { ...state.actions },
-        });
       });
 
       return unsubscribe;
     }, []);
 
+    useEffect(() => {
+      if (user) {
+        setState((prevState) => ({
+          store: { ...prevState.store, currentUser: user },
+          actions: { ...prevState.actions, clearUser },
+        }));
+      }
+    }, [user]);
+
     const signup = async (email, password) => {
       await auth.createUserWithEmailAndPassword(email, password);
     };
 
-    const clearUser = () => {
-      setCurrentUser(null);
-    };
-
     const value = {
       ...state,
-      currentUser,
       signup,
       clearUser,
+      isLoggedIn,
     };
 
     return (

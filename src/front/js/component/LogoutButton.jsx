@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import { Button, Modal } from 'react-bootstrap';
 
 const LogoutButton = () => {
-  const { actions } = useContext(Context);
+  const { actions, clearUser, setIsLoggedIn } = useContext(Context);
   const [error, setError] = useState('');
   const navigate = useNavigate();
   const [showModal, setShowModal] = useState(false);
@@ -13,7 +13,8 @@ const LogoutButton = () => {
   const handleLogout = async () => {
     try {
       await auth.signOut();
-      actions.clearUser();
+      clearUser();
+      setIsLoggedIn;
       console.log('Logout successful');
       navigate('/');
     } catch (error) {
