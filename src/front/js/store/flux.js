@@ -4,6 +4,7 @@ const getState = ({ getStore, getActions, setStore }) => {
       theme: localStorage.getItem('theme') || 'dark-theme',
     },
     actions: {
+      ...getActions(),
       setUser: (user) => {
         setStore({ user });
       },

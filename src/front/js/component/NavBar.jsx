@@ -58,7 +58,7 @@ export const NavBar = () => {
                 Servicios
               </Link>
               <Link
-                to="/productos"
+                to="/products"
                 className="nav-item nav-link"
                 onClick={closeNavbar}
               >
